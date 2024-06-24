@@ -4,7 +4,7 @@ import App from './App.js'
 import { FirebaseProvider } from './context/Firebase.jsx'
 import { BrowserRouter } from 'react-router-dom'
 
-
+// mddmdm
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <FirebaseProvider>
