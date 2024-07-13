@@ -9,7 +9,7 @@ const OrderDetails = () => {
 
     useEffect(()=>{
        firebase.getOrders(params.bookId).then(orders=>setOrders(orders.docs))
-    },[])
+    },[firebase,params])
   return (
     <div className='container'>
         <h1>orders</h1>

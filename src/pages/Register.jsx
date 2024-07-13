@@ -54,6 +54,7 @@ const Register = () => {
           Create Accout
         </Button>
       </Form>
+        <p onClick={()=> navigate("/signin")} style={{color:"blue", marginTop:"20px", cursor:"pointer"}}>Sign In. if you already have an account</p>
     </div>
   );
 }

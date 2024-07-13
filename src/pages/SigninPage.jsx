@@ -57,6 +57,7 @@ const SigninPage = () => {
       <Button variant='danger'
       onClick={Firebase.signInWithGoogle}
       >Sign In With Google</Button>
+      <p onClick={()=> navigate("/register")} style={{color:"blue", marginTop:"20px", cursor:"pointer"}}>Sign Up. if you are new</p>
     </div>
   );
 }

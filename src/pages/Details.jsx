@@ -17,14 +17,14 @@ const Details = () => {
     // console.log(data)
     useEffect(() => {
         firebase.getBookById(params.bookId).then(value => setData(value.data()))
-    }, [])
+    }, [firebase,params.bookId])
 
     useEffect(() => {
         if (data) {
             const imgURL = data.imageURL
             firebase.getImageURL(imgURL).then(URL => setURL(URL))
         }
-    }, [data])
+    }, [data,firebase])
 
 
     const placeorder= async()=>{
@@ -40,11 +40,11 @@ const Details = () => {
     return (
         <div className='container mt-5 '>
             <h1>{data.name}</h1>
-            <img src={url} alt="title image" width={400} height={200} /> <br />
+            <img src={url} alt="title theme" width={400} height={200} /> <br />
             <h1>Details</h1>
             <h4>Price: RS.{data.price}</h4>
             <h1>Owner Deails</h1>
-            <img src={data.photoURL} alt="photo image" width={50} />
+            <img src={data.photoURL} alt="account theme" width={50} />
             <p>Name: {data.displayName}</p>
             <p>Email Id: {data.userEmail}</p>
             <p>ISBN: {data.isbn}</p>

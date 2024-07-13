@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'firebase/auth';
 import { getFirestore, collection, addDoc, getDocs, doc, getDoc, where, query } from "firebase/firestore"
 import { ref, getStorage, uploadBytes, getDownloadURL } from "firebase/storage"
 import { initializeApp } from "firebase/app";
@@ -58,6 +58,11 @@ export const FirebaseProvider = (props) => {
   }, [])
 
   const isLogedin = user ? true : false
+
+  // signout 
+  const signUserOut=()=>{
+    signOut(FirebaseAuth)
+  }
 
   //firestore
   const handleCreateNewListing = async (name, isbn, price, cover) => {
@@ -135,6 +140,7 @@ export const FirebaseProvider = (props) => {
       signInUserWithEmailAndPassword,
       signInWithGoogle,
       isLogedin,
+      signUserOut,
       handleCreateNewListing,
       listAllData,
       getImageURL,

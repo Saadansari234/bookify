@@ -5,6 +5,7 @@ import BooksCard from '../components/Card'
 const Orders = () => {
   const [books, setBooks] = useState([])
   const firebase = useFirebase()
+  
   useEffect(() => {
     if (firebase.isLogedin) {
       firebase.fetchMyOrders(firebase.user.uid)?.then((books) => setBooks(books.docs))  
@@ -23,7 +24,7 @@ const Orders = () => {
         books.map((book)=>{
         return  (
           <div className='col-lg-4 col-md-6 col-sm-12 mt-5' key={book.id}>
-            <BooksCard   id={book.id} link={`/book/orders/${book.id}`} {...book.data()}/>
+            <BooksCard   id={book.id} link1={`/book/orders/${book.id}`} {...book.data()}/>
           </div>
         )
         })

@@ -11,7 +11,7 @@ function BooksCard(props) {
   useEffect(() => {
     firebase.getImageURL(props.imageURL)
       .then((url) => setURL(url))
-  }, [firebase])
+  }, [firebase,props.imageURL])
 
   return (
     <Card style={{ width: '18rem', marginBottom: "2rem" }}>
@@ -21,7 +21,9 @@ function BooksCard(props) {
         <Card.Text>
           this books has title {props.name} and this book is sold by {props.displayName} and this book cost is Rs{props.price}
         </Card.Text>
-        <Button variant="primary" onClick={(e)=> navigate(props.link)} >View</Button>
+        <Button variant="primary" onClick={(e)=> navigate(props.link1)} >View</Button>
+        <Button variant="danger" onClick={(e)=> navigate(props.link2)} >View order</Button>
+        
       </Card.Body>
     </Card>
   );
